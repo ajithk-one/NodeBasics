@@ -3,6 +3,7 @@ import express, { Express, Request, Response } from "express";
 const app: Express = express();
 const port = process.env.PORT || 8000;
 
+app.use(express.json());
 app.get("/", (req: Request, res: Response) => {
   res.send("Hello World");
 });
@@ -16,6 +17,12 @@ app.get("/user/:id", (req: Request, res: Response) => {
       queryParams ? "queryParams : " + JSON.stringify(queryParams) : ""
     }`
   );
+});
+
+app.post("/createUser", (req: Request, res: Response) => {
+  const userParams = req.body;
+
+  res.json(userParams);
 });
 
 app.listen(port, () => {
