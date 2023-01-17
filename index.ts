@@ -14,7 +14,7 @@ app.get("/user/:id", (req: Request, res: Response) => {
   console.log("Added some logs");
 
   res.send(
-    `Received UserId as : ${userId} ${
+    `Received UserId some more logs added as : ${userId} ${
       queryParams ? "queryParams : " + JSON.stringify(queryParams) : ""
     }`
   );
